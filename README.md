@@ -1,6 +1,6 @@
 <div align="center">
 
-# JoeMighty's AE Toolkit
+# AE Toolkit
 
 ![After Effects](https://img.shields.io/badge/After%20Effects-Scripting-9999FF?style=plastic&logo=adobeaftereffects&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/Language-JavaScript%20(ExtendScript)-F7DF1E?style=plastic&logo=javascript&logoColor=black)
