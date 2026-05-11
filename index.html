@@ -15,8 +15,8 @@
                         background: '#050505',
                         surface: '#111111',
                         surfaceBorder: '#222222',
-                        accent1: '#6366f1', // Indigo
-                        accent2: '#a855f7', // Purple
+                        accent1: '#6366f1',
+                        accent2: '#a855f7',
                     }
                 }
             }
@@ -68,8 +68,8 @@
     <div class="glow-orb bg-accent1 w-[500px] h-[500px] top-[-100px] left-[-100px]"></div>
     <div class="glow-orb bg-accent2 w-[600px] h-[600px] top-[20%] right-[-200px]"></div>
 
-    <!-- Header / Hero Section -->
-    <header class="relative pt-32 pb-20 text-center px-4">
+    <!-- Header Section -->
+    <header class="relative pt-32 pb-16 text-center px-4">
         <div class="inline-block mb-4 px-4 py-1.5 rounded-full border border-surfaceBorder bg-surface/50 backdrop-blur-md text-sm font-medium text-gray-300">
             Open Source v1.0
         </div>
@@ -88,14 +88,34 @@
                     View Repository
                 </span>
             </a>
-            <a href="#tools" class="px-8 py-4 text-gray-300 font-medium hover:text-white transition-colors">
-                Explore Tools ↓
+            <a href="#installation" class="px-8 py-4 text-gray-300 font-medium hover:text-white transition-colors">
+                How to Install
             </a>
         </div>
     </header>
 
-    <!-- Main Content (Tools Grid) -->
-    <main id="tools" class="flex-grow container mx-auto px-4 py-16 max-w-7xl relative z-10">
+    <main class="flex-grow container mx-auto px-4 pb-16 max-w-7xl relative z-10">
+        
+        <!-- Installation Guide -->
+        <section id="installation" class="mb-16 scroll-mt-24">
+            <div class="bg-surface/30 backdrop-blur-md border border-surfaceBorder rounded-2xl p-8 max-w-3xl mx-auto relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-accent1 to-accent2"></div>
+                <h2 class="text-2xl font-bold text-white mb-4">Installation Guide</h2>
+                <ol class="list-decimal list-inside space-y-3 text-gray-300 font-light">
+                    <li>Click on any tool below to download its <code class="bg-black/50 px-1.5 py-0.5 rounded text-accent2 text-sm">.jsx</code> file from GitHub.</li>
+                    <li>Move the downloaded file into your After Effects <strong>ScriptUI Panels</strong> folder:
+                        <ul class="list-disc list-inside ml-6 mt-2 space-y-1 text-gray-400 text-sm">
+                            <li><strong class="text-gray-300">Windows:</strong> <code class="bg-black/50 px-1.5 py-0.5 rounded">C:\Program Files\Adobe\Adobe After Effects &lt;version&gt;\Support Files\Scripts\ScriptUI Panels\</code></li>
+                            <li><strong class="text-gray-300">Mac:</strong> <code class="bg-black/50 px-1.5 py-0.5 rounded">/Applications/Adobe After Effects &lt;version&gt;/Scripts/ScriptUI Panels/</code></li>
+                        </ul>
+                    </li>
+                    <li>Restart After Effects.</li>
+                    <li>Navigate to the <strong class="text-white">Window</strong> menu at the very top of your screen and select the script name to open the panel.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Tools Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="tool-grid">
             
             <!-- Tool Cards injected via JS -->
@@ -103,18 +123,78 @@
                 const repoBaseUrl = "https://github.com/JoeMighty/AE-Toolkit/blob/main/";
                 
                 const tools = [
-                    { title: "Slideshow Builder", file: "SlideshowBuilder.jsx", desc: "Instantly arranges layers into a sequential slideshow with custom durations, fades, and complex transitions." },
-                    { title: "Project Organizer", file: "ProjectOrganizer.jsx", desc: "Scans the project bin and automatically files items into neat folders based on their file type extensions." },
-                    { title: "Expression Injector", file: "ExpressionInjector.jsx", desc: "A quick panel to inject common expressions (Wiggle, Loop, Bounce) into selected properties instantly." },
-                    { title: "Layer Randomizer", file: "LayerRandomizer.jsx", desc: "Randomly shifts the start times of selected layers to create beautiful, organic, staggered animations." },
-                    { title: "Auto Text Box", file: "AutoTextBox.jsx", desc: "Creates a dynamic shape layer that perfectly wraps behind selected text and resizes automatically." },
-                    { title: "Text Splitter", file: "TextSplitter.jsx", desc: "Duplicates a single paragraph text layer into separate individual layers based on words or lines." },
-                    { title: "Subtitle Importer", file: "SubtitleImporter.jsx", desc: "Reads standard .srt files and generates text layers perfectly synced to your timeline." },
-                    { title: "Anchor Point Manager", file: "AnchorManager.jsx", desc: "Snaps layer anchor points to 9 different sectors without moving the layer's visual world position." },
-                    { title: "Master Color Control", file: "MasterColorController.jsx", desc: "Links all colors in selected layers to a single Master Null for incredibly easy, global color changes." },
-                    { title: "Palette Extractor", file: "PaletteExtractor.jsx", desc: "Reads colors directly from an image layer and generates a clean 5-color solid shape palette." },
-                    { title: "Expression Baker", file: "ExpressionBaker.jsx", desc: "Finds every property running an expression across selected layers and bakes them into standard keyframes." },
-                    { title: "Advanced Sequencer", file: "AdvancedSequencer.jsx", desc: "Staggers or sequences layers back-to-back with precise frame offsets and ordering controls." }
+                    { 
+                        title: "Slideshow Builder", 
+                        file: "SlideshowBuilder.jsx", 
+                        desc: "Instantly arranges layers into a sequential slideshow with custom durations, fades, and complex transitions.",
+                        usage: "Select media layers, configure your durations and transition style in the panel, and click Build."
+                    },
+                    { 
+                        title: "Project Organizer", 
+                        file: "ProjectOrganizer.jsx", 
+                        desc: "Scans the project bin and automatically files items into neat folders based on their file type extensions.",
+                        usage: "Just click the button. It will automatically create folders and move your assets into them."
+                    },
+                    { 
+                        title: "Expression Injector", 
+                        file: "ExpressionInjector.jsx", 
+                        desc: "A quick panel to inject common expressions (Wiggle, Loop, Bounce) into selected properties instantly.",
+                        usage: "Select any animatable properties, choose an expression from the dropdown, and click Apply."
+                    },
+                    { 
+                        title: "Layer Randomizer", 
+                        file: "LayerRandomizer.jsx", 
+                        desc: "Randomly shifts the start times of selected layers to create beautiful, organic, staggered animations.",
+                        usage: "Select your layers, input the maximum frame shift you want, and click Randomize."
+                    },
+                    { 
+                        title: "Auto Text Box", 
+                        file: "AutoTextBox.jsx", 
+                        desc: "Creates a dynamic shape layer that perfectly wraps behind selected text and resizes automatically.",
+                        usage: "Select a text layer, set your X and Y padding preferences, and click Create."
+                    },
+                    { 
+                        title: "Text Splitter", 
+                        file: "TextSplitter.jsx", 
+                        desc: "Duplicates a single paragraph text layer into separate individual layers based on words or lines.",
+                        usage: "Select a text layer, choose to split by Words or Lines, and click Split."
+                    },
+                    { 
+                        title: "Subtitle Importer", 
+                        file: "SubtitleImporter.jsx", 
+                        desc: "Reads standard .srt files and generates text layers perfectly synced to your timeline.",
+                        usage: "Click Import, select your .srt file, and the script will generate the synced text layer."
+                    },
+                    { 
+                        title: "Anchor Point Manager", 
+                        file: "AnchorManager.jsx", 
+                        desc: "Snaps layer anchor points to 9 different sectors without moving the layer's visual world position.",
+                        usage: "Select layers, then click any of the 9 grid buttons to snap the anchor point."
+                    },
+                    { 
+                        title: "Master Color Control", 
+                        file: "MasterColorController.jsx", 
+                        desc: "Links all colors in selected layers to a single Master Null for incredibly easy, global color changes.",
+                        usage: "Select multiple layers and click Link to instantly tie their colors to a new Master Null."
+                    },
+                    { 
+                        title: "Palette Extractor", 
+                        file: "PaletteExtractor.jsx", 
+                        desc: "Reads colors directly from an image layer and generates a clean 5-color solid shape palette.",
+                        usage: "Select a single image or video layer, then click Extract to generate the shape layers."
+                    },
+                    { 
+                        title: "Expression Baker", 
+                        file: "ExpressionBaker.jsx", 
+                        desc: "Finds every property running an expression across selected layers and bakes them into standard keyframes.",
+                        usage: "Select your layers and click Bake. It will find all active expressions and convert them."
+                    },
+                    { 
+                        title: "Advanced Sequencer", 
+                        file: "AdvancedSequencer.jsx", 
+                        desc: "Staggers or sequences layers back-to-back with precise frame offsets and ordering controls.",
+                        usage: "Select layers, set your frame offset, choose sequence or stagger mode, and run."
+                    }
                 ];
 
                 const container = document.getElementById('tool-grid');
@@ -123,22 +203,27 @@
                     const cardLink = document.createElement('a');
                     cardLink.href = repoBaseUrl + tool.file;
                     cardLink.target = "_blank";
-                    cardLink.className = "tool-card group relative flex flex-col justify-between h-full bg-surface/40 backdrop-blur-md border border-surfaceBorder rounded-2xl p-8 overflow-hidden";
+                    cardLink.className = "tool-card group relative flex flex-col h-full bg-surface/40 backdrop-blur-md border border-surfaceBorder rounded-2xl p-6 overflow-hidden";
                     
                     cardLink.innerHTML = `
                         <div class="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         
-                        <div class="relative z-10">
-                            <div class="flex justify-between items-start mb-4">
+                        <div class="relative z-10 flex-grow">
+                            <div class="flex justify-between items-start mb-3">
                                 <h3 class="text-xl font-semibold text-white tracking-tight">${tool.title}</h3>
-                                <svg class="arrow-icon w-5 h-5 text-gray-500 group-hover:text-accent2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                <svg class="arrow-icon w-5 h-5 text-gray-500 group-hover:text-accent2 shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             </div>
-                            <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">${tool.desc}</p>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4 font-light">${tool.desc}</p>
                         </div>
                         
-                        <div class="relative z-10 flex items-center justify-between mt-auto pt-4 border-t border-surfaceBorder/50">
-                            <span class="text-xs font-mono text-gray-500 bg-black/50 px-2 py-1 rounded">${tool.file}</span>
-                            <span class="text-sm font-medium text-accent1 group-hover:text-accent2 transition-colors">Get Script</span>
+                        <div class="relative z-10 mt-auto">
+                            <div class="bg-black/30 rounded-lg p-3 border border-white/5 mb-4">
+                                <p class="text-xs text-gray-300 leading-relaxed"><strong class="text-accent1 font-medium">Usage:</strong> ${tool.usage}</p>
+                            </div>
+                            <div class="flex items-center justify-between pt-4 border-t border-surfaceBorder/50">
+                                <span class="text-xs font-mono text-gray-500 bg-black/50 px-2 py-1 rounded">${tool.file}</span>
+                                <span class="text-sm font-medium text-accent1 group-hover:text-accent2 transition-colors">Get Script</span>
+                            </div>
                         </div>
                     `;
                     container.appendChild(cardLink);
