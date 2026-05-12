@@ -31,7 +31,7 @@ This repository contains 12 dockable utility scripts designed to solve daily pai
 
 ### Layout & Design
 * **Anchor Point Manager**: A 3x3 grid UI that snaps layer anchor points to 9 different sectors without moving the layer's visual position.
-* **Auto Text Box**: Creates a dynamic shape layer that perfectly wraps behind your selected text, automatically resizing when the text changes.
+* **Auto Text Box**: Creates a dynamic shape layer that perfectly wraps behind your selected text, automatically resizing when the text changes. - WORK IN PROGRESS
 
 ### Text & Subtitles
 * **Text Splitter**: Takes a single text layer and duplicates it into separate layers based on individual words or lines.
